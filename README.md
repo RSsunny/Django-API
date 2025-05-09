@@ -19,6 +19,12 @@ activate
 pip list
 ```
 
+- install django
+
+```
+pip install django
+```
+
 - Go to folder path than create project
 
 ```
