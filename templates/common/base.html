@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      nav {
+        background-color: #f0f8ff;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 20px;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+
+      .nav-links li {
+        position: relative;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        padding: 8px 12px;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #007bff;
+      }
+
+      .nav-links li:hover .dropdown {
+        display: block;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: #fff;
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          border: 1px solid #ddd;
+          width: 200px;
+          padding: 10px 0;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+          cursor: pointer;
+          font-size: 24px;
+        }
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="logo">Sharif-Tech</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'home' %}">About</a></li>
+          <li>
+            <a href="{% url 'service' %}">Services</a>
+          </li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    {% block content %}{% endblock content %} {% comment %} main content {%
+    endcomment %} {% comment %} footer {% endcomment %}
+
+    <footer
+      style="
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+        padding: 40px 20px;
+        font-family: Arial, sans-serif;
+      "
+    >
+      <div
+        style="
+          max-width: 1200px;
+          margin: auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 30px;
+        "
+      >
+        <!-- Logo and Description -->
+        <div style="flex: 1; min-width: 220px">
+          <h2 style="font-size: 24px; color: #007bff; font-weight: bold">
+            Sharif-Tech
+          </h2>
+          <p style="margin-top: 10px; color: #555">
+            Your trusted tech partner for web, mobile, and SEO solutions.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div style="flex: 1; min-width: 160px">
+          <h3 style="font-size: 18px; margin-bottom: 10px">Quick Links</h3>
+          <ul style="list-style: none; padding: 0; color: #333">
+            <li>
+              <a href="#" style="text-decoration: none; color: #333">Home</a>
+            </li>
+            <li>
+              <a href="#" style="text-decoration: none; color: #333">About</a>
+            </li>
+            <li>
+              <a href="#" style="text-decoration: none; color: #333"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#" style="text-decoration: none; color: #333">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div style="flex: 1; min-width: 220px">
+          <h3 style="font-size: 18px; margin-bottom: 10px">Contact</h3>
+          <p>Email: contact@shariftech.com</p>
+          <p>Phone: +880 123 456 7890</p>
+          <p>Location: Dhaka, Bangladesh</p>
+        </div>
+      </div>
+
+      <div
+        style="
+          text-align: center;
+          margin-top: 30px;
+          color: #888;
+          font-size: 14px;
+        "
+      >
+        &copy; 2025 sharif-tech. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("show");
+      }
+    </script>
+  </body>
+</html>

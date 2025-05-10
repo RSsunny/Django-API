@@ -1,154 +1,154 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
-    <title>My Website | Home</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", sans-serif;
-      }
+{% extends "common/base.html" %} {% block content %}
 
-      body {
-        line-height: 1.6;
-        background-color: #f5f5f5;
-        color: #333;
-      }
+<section
+  style="padding: 60px 20px; background-color: #f0f8ff; text-align: center"
+>
+  <h1 style="font-size: 36px; color: #007bff">Welcome to sharif-tech</h1>
+  <p style="font-size: 18px; margin: 20px auto; max-width: 600px">
+    We build modern websites, mobile apps, and provide digital marketing
+    services to help your business grow online.
+  </p>
+  <a
+    href="#contact"
+    style="
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    "
+    >Get Started</a
+  >
+</section>
+<section style="padding: 60px 20px; background-color: #ffffff">
+  <h2 style="text-align: center; font-size: 28px; color: #007bff">
+    Our Services
+  </h2>
+  <div
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 40px auto;
+    "
+  >
+    <div style="flex: 1; min-width: 250px">
+      <h3>Web Development</h3>
+      <p>
+        Custom websites with modern technologies, fast performance, and
+        responsive design.
+      </p>
+    </div>
+    <div style="flex: 1; min-width: 250px">
+      <h3>Mobile Apps</h3>
+      <p>
+        Native and cross-platform mobile applications tailored for your business
+        needs.
+      </p>
+    </div>
+    <div style="flex: 1; min-width: 250px">
+      <h3>SEO & Marketing</h3>
+      <p>
+        Boost your online visibility and drive more traffic with expert SEO
+        strategies.
+      </p>
+    </div>
+  </div>
+</section>
+<section style="padding: 60px 20px; background-color: #f9f9f9">
+  <div style="max-width: 1000px; margin: auto">
+    <h2 style="text-align: center; font-size: 28px; color: #007bff">
+      About sharif-tech
+    </h2>
+    <p style="margin-top: 20px; font-size: 18px; text-align: center">
+      sharif-tech is a Dhaka-based tech company dedicated to delivering
+      innovative solutions in web, mobile, and digital platforms. Our team of
+      experts is passionate about building digital products that empower
+      businesses.
+    </p>
+  </div>
+</section>
+<section style="padding: 60px 20px; background-color: #ffffff">
+  <h2 style="text-align: center; font-size: 28px; color: #007bff">
+    Why Choose Us?
+  </h2>
+  <div
+    style="
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    "
+  >
+    <div style="flex: 1; min-width: 250px">
+      <h4>Experienced Team</h4>
+      <p>
+        Our developers and designers have years of experience building robust
+        tech solutions.
+      </p>
+    </div>
+    <div style="flex: 1; min-width: 250px">
+      <h4>Client-Focused</h4>
+      <p>
+        We listen to your needs and deliver custom solutions that help your
+        business succeed.
+      </p>
+    </div>
+    <div style="flex: 1; min-width: 250px">
+      <h4>Affordable Pricing</h4>
+      <p>
+        High-quality services at rates that make sense for startups and growing
+        companies.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="contact" style="padding: 60px 20px; background-color: #f0f8ff">
+  <h2 style="text-align: center; font-size: 28px; color: #007bff">
+    Contact Us
+  </h2>
+  <form
+    style="
+      max-width: 600px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    "
+  >
+    <input
+      type="text"
+      placeholder="Your Name"
+      required
+      style="padding: 10px; border: 1px solid #ccc"
+    />
+    <input
+      type="email"
+      placeholder="Your Email"
+      required
+      style="padding: 10px; border: 1px solid #ccc"
+    />
+    <textarea
+      placeholder="Your Message"
+      rows="5"
+      required
+      style="padding: 10px; border: 1px solid #ccc"
+    ></textarea>
+    <button
+      type="submit"
+      style="
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      "
+    >
+      Send Message
+    </button>
+  </form>
+</section>
 
-      header {
-        background-color: #1e293b;
-        padding: 20px;
-        color: white;
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      nav .logo {
-        font-size: 24px;
-        font-weight: bold;
-      }
-
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-        transition: color 0.3s;
-      }
-
-      nav ul li a:hover {
-        color: #38bdf8;
-      }
-
-      .hero {
-        text-align: center;
-        padding: 80px 20px;
-        background: #0f172a;
-        color: white;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-        margin-bottom: 20px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        margin-bottom: 30px;
-      }
-
-      .hero a {
-        background: #38bdf8;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        padding: 50px 20px;
-        background: white;
-      }
-
-      .feature {
-        background: #e2e8f0;
-        padding: 20px;
-        border-radius: 12px;
-        text-align: center;
-      }
-
-      .feature h3 {
-        margin-bottom: 10px;
-      }
-
-      footer {
-        background-color: #1e293b;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-      }
-
-      @media (max-width: 600px) {
-        nav ul {
-          flex-direction: column;
-          gap: 10px;
-          margin-top: 10px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">MyWebsite</div>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1>Welcome to My Website</h1>
-      <p>Your one-stop solution for modern web tools and resources.</p>
-      <a href="#">Get Started</a>
-    </section>
-
-    <section class="features">
-      <div class="feature">
-        <h3>Fast Performance</h3>
-        <p>Optimized code and structure ensure blazing-fast load times.</p>
-      </div>
-      <div class="feature">
-        <h3>Responsive Design</h3>
-        <p>Looks great on all devices, from desktops to smartphones.</p>
-      </div>
-      <div class="feature">
-        <h3>Easy Customization</h3>
-        <p>Modify layouts, colors, and content with ease.</p>
-      </div>
-    </section>
-
-    <footer>&copy; 2025 MyWebsite. All rights reserved.</footer>
-  </body>
-</html>
+{% endblock content %} {% block title %} Sharif-Tech {% endblock title %}
