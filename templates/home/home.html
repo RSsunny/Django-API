@@ -151,4 +151,41 @@
   </form>
 </section>
 
-{% endblock content %} {% block title %} Sharif-Tech {% endblock title %}
+<div
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+    margin: auto;
+    max-width: 1200px;
+  "
+>
+  {% if user %} {% for x in user %}
+  <div
+    style="
+      max-width: 300px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    "
+  >
+    <h2 style="margin: 10px 0; color: #007bff">{{x.f_name}}</h2>
+    <p style="margin: 5px 0; color: #555">Frontend Developer</p>
+    <p style="font-size: 14px; color: #777">
+      Passionate about building user-friendly interfaces and interactive web
+      apps.
+    </p>
+    <div style="margin-top: 15px">
+      <p>{{x.phone}}</p>
+      <p>{{x.email}}</p>
+    </div>
+  </div>
+  {% endfor %} {% endif %}
+</div>
+{% endblock content %}
