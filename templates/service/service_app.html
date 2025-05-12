@@ -1,4 +1,7 @@
+
 {% extends 'common/base.html' %}{% block title %}Service App{% endblock title %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
 {% block content %}
 <div
   style="
@@ -35,6 +38,13 @@
   {% endfor %}{% endif %}
 </div>
 
+
+<section id="contact" style="padding: 60px 20px; background-color: #f0f8ff">
+  <h2 
+  style="font-size: 30px; text-align: center; color: #007bff; margin-top: 20px"
+">
+User Registeration Form
+</h2>
 <form
   style="
     max-width: 600px;
@@ -43,31 +53,13 @@
     flex-direction: column;
     gap: 15px;
   "
+  action=""
+  method="POST"
 >
-  <input
-    type="text"
-    name="{{from.name.name}}"
-    value="{{from.name.value|default:''}}"
-    placeholder="Inter Your Name"
-    required
-    style="padding: 10px; border: 1px solid #ccc"
-  />
-  <input
-    type="email"
-    name="{{from.email.name}}"
-    value="{{from.email.value|default:''}}"
-    placeholder="Your Email"
-    required
-    style="padding: 10px; border: 1px solid #ccc"
-  />
-  <textarea
-    placeholder="Your Message"
-    name="{{from.message.name}}"
-    value="{{from.message.value|default:''}}"
-    rows="5"
-    required
-    style="padding: 10px; border: 1px solid #ccc"
-  ></textarea>
+{% csrf_token %}
+  
+    {{ form.as_table }}
+ 
   <button
     type="submit"
     style="
@@ -78,7 +70,8 @@
       cursor: pointer;
     "
   >
-    Send Message
+    Registeration
   </button>
 </form>
+</section>
 {% endblock content %}
